@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Car;
 use Illuminate\Http\Request;
 
-class CarsController extends Controller
+class BrandsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,16 +13,7 @@ class CarsController extends Controller
      */
     public function index()
     {
-        $cars = Car::get();
-
-        return view('cars.index', [
-            'cars'=> $cars
-        ]);
-    }
-
-    public function getProductByIdAndCategory(string $id, string $categoryId)
-    {
-        dd([$id, $categoryId]);
+        //
     }
 
     /**
@@ -33,7 +23,7 @@ class CarsController extends Controller
      */
     public function create()
     {
-        return view ("cars.form");
+        //
     }
 
     /**
@@ -44,14 +34,8 @@ class CarsController extends Controller
      */
     public function store(Request $request)
     {
-        $car = new Car();
-        $car->name = $request->name;
-        $car->price = $request->price;
-        $car->qty = $request->qty;
-        $car->category = $request->category;
-        $result = $car->save();
-        redirect('/cars');
-        }
+        //
+    }
 
     /**
      * Display the specified resource.
@@ -59,12 +43,9 @@ class CarsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(string $id)
+    public function show($id)
     {
-        $car = Car::find($id);
-        // $product = Product::where('id', $id)->first(); // it will also return single product
-
-        return view('cars.car-details', ['car' => $car]);
+        //
     }
 
     /**
@@ -99,6 +80,5 @@ class CarsController extends Controller
     public function destroy($id)
     {
         //
-        
     }
 }

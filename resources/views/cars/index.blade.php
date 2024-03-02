@@ -10,7 +10,6 @@
 
     <h1>Car list</h1>
         
-        <h2>Total: {{$totalCars}}</h2>
 
         @foreach($cars as $car)
         <li>{{$car}}</li>

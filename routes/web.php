@@ -20,9 +20,10 @@ Route::get('/', function () {
 });
 
 Route::get('cars/form',[CarsController::class, 'create']);
+// Route::get('cars',[CarsController::class,'index']);
 Route::get('cars/{id}', [CarsController::class,'show']);
 Route::get('cars/{id}/category/{categoryId}', [CarsController::class,'getProductByIdAndCategory']);
+Route::post('cars', [CarsController::class,'store']);
 
-Route::post('cars',[CarsController::class,'store']);
 
 
