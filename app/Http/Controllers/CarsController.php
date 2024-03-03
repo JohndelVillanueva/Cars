@@ -16,7 +16,7 @@ class CarsController extends Controller
     {
         $cars = Car::get();
 
-        return view('cars.index', [
+        return view ('cars.index', [
             'cars'=> $cars
         ]);
     }
@@ -50,7 +50,7 @@ class CarsController extends Controller
         $car->qty = $request->qty;
         $car->category = $request->category;
         $result = $car->save();
-        redirect('/cars');
+        return redirect('/cars');
         }
 
     /**

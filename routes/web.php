@@ -19,6 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('cars/',[CarsController::class, 'index']);
 Route::get('cars/form',[CarsController::class, 'create']);
 // Route::get('cars',[CarsController::class,'index']);
 Route::get('cars/{id}', [CarsController::class,'show']);
