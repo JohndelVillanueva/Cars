@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BrandsController;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\CarsController;
 use Illuminate\Support\Facades\Route;
@@ -19,12 +20,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('cars/',[CarsController::class, 'index']);
 Route::get('cars/form',[CarsController::class, 'create']);
+Route::get('cars/',[CarsController::class, 'index']);
 // Route::get('cars',[CarsController::class,'index']);
 Route::get('cars/{id}', [CarsController::class,'show']);
-Route::get('cars/{id}/category/{categoryId}', [CarsController::class,'getProductByIdAndCategory']);
+// Route::get('cars/{id}/category/{categoryId}', [CarsController::class,'getProductByIdAndCategory']);
 Route::post('cars', [CarsController::class,'store']);
 
-
-
+Route::get('brands/form', [BrandsController::class,'create']);
+Route::get('brands/', [BrandsController::class, 'index']);
+Route::get('brands/{id}', [BrandsController::class,'show']);
+Route::post('brands', [BrandsController::class,'store']);

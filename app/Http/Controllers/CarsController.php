@@ -15,10 +15,9 @@ class CarsController extends Controller
     public function index()
     {
         $cars = Car::get();
-
-        return view ('cars.index', [
+        return view('cars.index',[
             'cars'=> $cars
-        ]);
+        ] );
     }
 
     public function getProductByIdAndCategory(string $id, string $categoryId)
@@ -33,7 +32,7 @@ class CarsController extends Controller
      */
     public function create()
     {
-        return view ("cars.form");
+        return view ('cars.form');
     }
 
     /**
@@ -49,7 +48,7 @@ class CarsController extends Controller
         $car->price = $request->price;
         $car->qty = $request->qty;
         $car->category = $request->category;
-        $result = $car->save();
+        $car->save();
         return redirect('/cars');
         }
 

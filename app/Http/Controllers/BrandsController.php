@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Brand;
 use Illuminate\Http\Request;
 
 class BrandsController extends Controller
@@ -14,6 +15,11 @@ class BrandsController extends Controller
     public function index()
     {
         //
+        $brands = Brand::get();
+        return view('brands.index',[
+            'brands'=> $brands
+        ]);
+
     }
 
     /**
@@ -24,6 +30,7 @@ class BrandsController extends Controller
     public function create()
     {
         //
+        return view('brands.form');
     }
 
     /**
@@ -35,6 +42,14 @@ class BrandsController extends Controller
     public function store(Request $request)
     {
         //
+            $brand = new Brand();
+            $brand->brand = $request->brand;
+            $brand->country = $request->country;
+            $brand->price = $request->price;
+            $brand->save();
+
+            return redirect('/brands')->with('success','Successful store in database');
+
     }
 
     /**
@@ -45,6 +60,10 @@ class BrandsController extends Controller
      */
     public function show($id)
     {
+        $brand = Brand::find($id);
+        return view('brands.brand-details',[
+            'brand'=> $brand
+        ]);
         //
     }
 
