@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Brand;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
-class BrandsController extends Controller
+class CategoriesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,10 +15,12 @@ class BrandsController extends Controller
     public function index()
     {
         //
-        $brands = Brand::get();
-        return view('brands.index',[
-            'brands'=> $brands
-        ]);
+        $categories = Category::get();
+        return view("categories.index",[
+            "categories"=> $categories
+        ] );
+
+
 
     }
 
@@ -30,7 +32,7 @@ class BrandsController extends Controller
     public function create()
     {
         //
-        return view('brands.form');
+        return view("categories.form");
     }
 
     /**
@@ -42,13 +44,13 @@ class BrandsController extends Controller
     public function store(Request $request)
     {
         //
-            $brand = new Brand();
-            $brand->brand = $request->brand;
-            $brand->country = $request->country;
-            $brand->price = $request->price;
-            $brand->save();
-            return redirect('/brands')->with('success','Successful store in database');
+        $category = new Category();
 
+        $category->category = $request->category;
+        $category->type = $request->type;
+        $category->stock = $request->stock;
+        $category->save();
+        return redirect("/categories")->with("success","");
     }
 
     /**
@@ -59,9 +61,10 @@ class BrandsController extends Controller
      */
     public function show($id)
     {
-        $brand = Brand::find($id);
-        return view('brands.brand-details',[
-            'brand'=> $brand
+        $category = Category::find($id);
+
+        return view("categories.categories-details",[
+            "category"=> $category
         ]);
         //
     }

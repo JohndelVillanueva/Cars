@@ -3,6 +3,7 @@
 use App\Http\Controllers\BrandsController;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\CarsController;
+use App\Http\Controllers\CategoriesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,3 +32,8 @@ Route::get('brands/form', [BrandsController::class,'create']);
 Route::get('brands/', [BrandsController::class, 'index']);
 Route::get('brands/{id}', [BrandsController::class,'show']);
 Route::post('brands', [BrandsController::class,'store']);
+
+Route::get('categories/form', [CategoriesController::class,'create']);
+Route::get('categories/', [CategoriesController::class,'index']);
+Route::post('categories', [CategoriesController::class,'store']);
+Route::get('categories/{id}', [CategoriesController::class,'show']);
