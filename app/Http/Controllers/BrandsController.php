@@ -47,7 +47,7 @@ class BrandsController extends Controller
             $brand->country = $request->country;
             $brand->price = $request->price;
             $brand->save();
-            return redirect('/brands')->with('success','Successful store in database');
+            return redirect('/brands');
 
     }
 
