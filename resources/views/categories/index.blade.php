@@ -29,7 +29,6 @@
                 <td>{{$category->stock}}</td>
                 <td><a href="/categories/<?= $category->id ?>">View</a></td>
                 @endforeach
-
             </tr>
         </tbody>
     </table>
